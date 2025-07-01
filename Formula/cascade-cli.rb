@@ -17,12 +17,12 @@ class CascadeCli < Formula
 
   # Apple Silicon (ARM64) - Default
   if Hardware::CPU.arm?
-    url "https://github.com/JAManfredi/cascade-cli/releases/download/v0.1.6/cc-macos-arm64.tar.gz"
+    url "https://github.com/JAManfredi/cascade-cli/releases/download/v0.1.6/csc-macos-arm64.tar.gz"
     sha256 "8da2afd781490e05be76e931293b2e845fabae266770bcbdc656d0ac5e8d1d26"
     version "0.1.6"
   else
     # Intel (x64)
-    url "https://github.com/JAManfredi/cascade-cli/releases/download/v0.1.6/cc-macos-x64.tar.gz"
+    url "https://github.com/JAManfredi/cascade-cli/releases/download/v0.1.6/csc-macos-x64.tar.gz"
     sha256 "dcb2f73f86dd34fde9e9f7a171fb3b8d561a3c8a2cfd9828b84c4d79013f3272"
     version "0.1.6"
   end
@@ -30,7 +30,7 @@ class CascadeCli < Formula
   depends_on "git"
 
   def install
-    bin.install "cc"
+    bin.install "csc"
     
     # Note: Shell completions will be added in future release
     # when completion generation in CI is fixed
@@ -42,14 +42,14 @@ class CascadeCli < Formula
       
       Quick Start:
         1. Navigate to your Git repository: cd your-project
-        2. Initialize Cascade: cc init
-        3. Create your first stack: cc stack create "my-feature"
-        4. Add commits to stack: cc stack push
+        2. Initialize Cascade: csc init
+        3. Create your first stack: csc stack create "my-feature"
+        4. Add commits to stack: csc stack push
       
       Learn More:
-        cc --help                    # Show all commands
-        cc doctor                    # Check system setup
-        cc stack --help             # Stack management help
+        csc --help                    # Show all commands
+        csc doctor                    # Check system setup
+        csc stack --help             # Stack management help
         
       Documentation:
         https://github.com/JAManfredi/cascade-cli/blob/main/docs/USER_MANUAL.md
@@ -62,8 +62,8 @@ class CascadeCli < Formula
   end
 
   test do
-    system "#{bin}/cc", "--version"
-    system "#{bin}/cc", "--help"
+    system "#{bin}/csc", "--version"
+    system "#{bin}/csc", "--help"
     
     # Test basic functionality
     (testpath/"test-repo").mkpath
@@ -75,8 +75,8 @@ class CascadeCli < Formula
       system "git", "add", "README.md"
       system "git", "commit", "-m", "Initial commit"
       
-      # Test cc doctor (should detect git repo but no cascade config)
-      output = shell_output("#{bin}/cc doctor 2>&1", 1)
+      # Test csc doctor (should detect git repo but no cascade config)
+      output = shell_output("#{bin}/csc doctor 2>&1", 1)
       assert_match "Git repository:", output
     end
   end
