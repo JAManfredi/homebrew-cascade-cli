@@ -17,14 +17,14 @@ class CascadeCli < Formula
 
   # Apple Silicon (ARM64) - Default
   if Hardware::CPU.arm?
-    url "https://github.com/JAManfredi/cascade-cli/releases/download/v0.1.58/ca-macos-arm64.tar.gz"
-    sha256 "8d59749c35c142df8c86c848b1c2813d7411a503ad3293d8cdc4db33d5a55e4a"
-    version "0.1.58"
+    url "https://github.com/JAManfredi/cascade-cli/releases/download/v0.1.59/ca-macos-arm64.tar.gz"
+    sha256 "2fc2c2229fccf90ef771f8ac48d83dd1e90b85e14e2fdd2c8ee1a13f1aed8b2c"
+    version "0.1.59"
   else
     # Intel (x64)
-    url "https://github.com/JAManfredi/cascade-cli/releases/download/v0.1.58/ca-macos-x64.tar.gz"
-    sha256 "86e56144a9ded36e3b1fd42621a30a5274710174d36156c98acb8a3fdbd8847a"
-    version "0.1.58"
+    url "https://github.com/JAManfredi/cascade-cli/releases/download/v0.1.59/ca-macos-x64.tar.gz"
+    sha256 "dc0970ba48c1dd4419887d389788e4102422b461041d49d986829c8cd01f5516"
+    version "0.1.59"
   end
 
   depends_on "git"
